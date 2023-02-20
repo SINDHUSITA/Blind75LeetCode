@@ -1,5 +1,5 @@
 # Write your MySQL query statement below
-select a.Name AS 'Employee'
-FROM Employee AS a, Employee AS b
-WHERE a.ManagerId = b.Id
-AND a.Salary > b.Salary
+
+SELECT  e1.name as Employee 
+FROM Employee e1, Employee e2
+Where e1.managerID = e2.id and e1.salary > e2.salary 
