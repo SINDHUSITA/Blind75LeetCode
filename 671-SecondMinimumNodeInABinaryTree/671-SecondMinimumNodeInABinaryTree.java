@@ -1,0 +1,36 @@
+// Last updated: 6/12/2025, 8:29:43 AM
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public static Set<Integer> s ;
+    public int findSecondMinimumValue(TreeNode root) {
+        s = new HashSet<>();
+        helper(root);
+        List<Integer> l = new ArrayList<>(s);
+        Collections.sort(l);
+        if(l.size()>1){
+            return l.get(1);
+        }
+        return -1;
+
+    }
+    public static void helper(TreeNode root){
+        if(root== null) return ;
+        s.add(root.val);
+        helper(root.left);
+        helper(root.right);
+    }
+}
