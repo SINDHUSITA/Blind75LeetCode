@@ -1,0 +1,11 @@
+# Last updated: 6/12/2025, 8:30:22 AM
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        count = 0
+        res = None
+        for num in nums:
+            if count == 0:
+                res = num
+            count += (1 if num == res else -1)
+        return res
+        
